@@ -1,0 +1,53 @@
+PROBLEM: https://leetcode.com/problems/sort-list/
+
+
+SOLUTION:
+
+ListNode* middle(ListNode *head){
+        ListNode *slow = head, *fast = head->next->next;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+    
+    
+ListNode* merge(ListNode *first, ListNode *second){
+        ListNode *resNode;
+        
+        if(first == NULL) return second;
+        if(second == NULL) return first;
+        
+        if(first->val <= second->val){
+            resNode = first;
+            resNode->next = merge(first->next, second);
+        }
+        else{
+            resNode = second;
+            resNode->next = merge(first, second->next);
+        }
+        
+        return resNode;
+    }
+    
+    
+ListNode* sortList(ListNode* head) { 
+        
+        if(head == NULL || head->next == NULL) return head;
+        
+        ListNode* midNode = middle(head);               //find the middle node
+        
+        ListNode* second = sortList(midNode->next);     //assigning pointer to second part of linked list after partioning.
+        midNode->next = NULL;                           //assign NULL to first part's end linked list.
+        ListNode* first = sortList(head);               //assigning pointer to first part of linked list.
+        
+        return merge(first, second);                    //merge first and second part.
+        
+    }
+    
+    
+    
+    
+    
+    
