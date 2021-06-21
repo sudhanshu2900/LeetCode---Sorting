@@ -1,9 +1,9 @@
-PROBLEM:
+PROBLEM: https://leetcode.com/problems/sort-colors/
 
 
 SOLUTION:
 
-// two pass O(m+n) space
+                                                                                  // two pass O(m+n) space
 void sortColors(int A[], int n) {
     int num0 = 0, num1 = 0, num2 = 0;
     
@@ -20,7 +20,7 @@ void sortColors(int A[], int n) {
 
 ________________________________________________________________________
 
-// one pass in place solution
+                                                                                    // one pass in place solution
 void sortColors(int A[], int n) {
     int n0 = -1, n1 = -1, n2 = -1;
     for (int i = 0; i < n; ++i) {
@@ -41,7 +41,7 @@ void sortColors(int A[], int n) {
 
 ___________________________________________________________________________
 
-// one pass in place solution
+                                                                                        // one pass in place solution
 void sortColors(int A[], int n) {
     int j = 0, k = n - 1;
     for (int i = 0; i <= k; ++i){
@@ -54,7 +54,7 @@ void sortColors(int A[], int n) {
 
 ____________________________________________________________________________
 
-// one pass in place solution
+                                                                                          // one pass in place solution
 void sortColors(int A[], int n) {
     int j = 0, k = n-1;
     for (int i=0; i <= k; i++) {
