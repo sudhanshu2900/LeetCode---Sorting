@@ -1,0 +1,26 @@
+PROBLEM: https://leetcode.com/problems/insertion-sort-list/
+
+SOLUTION:
+
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode* temp = head->next;
+        
+        
+        while(temp != NULL){
+            ListNode *test = head;
+            while(test < temp){
+                if(temp->val < test->val){
+                    swap(temp->val , test->val);
+                }
+                test = test->next;
+            }
+            temp = temp->next;
+        }
+        
+        return head;
+    }
+    
+    
+    
+    
+    
