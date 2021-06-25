@@ -1,0 +1,37 @@
+PROBLEM LINK: https://leetcode.com/problems/sorting-the-sentence/
+
+
+SOLUTION:
+
+string sortSentence(string s) {
+        vector<string> test(10,"");         //create a empty vector of string type of length 10.
+        
+        for(int i=0; i<s.size(); i++){
+            int j = i;                      //start iterate with 'j'.
+            string temp;                    //create string that store small segmented strings.
+            while(!isdigit(s[j])){          //check if s[j] is not digit until we add character
+                temp.push_back(s[j]);       //into temp string.
+                j++;
+            }
+            test[s[j] - '0'] = temp;        //Store that string segment on that index of vector 
+            i = j+1;                        //on which digit occure in original string.
+        }                                   //Ex. 'is' is stored at 2nd index & 'a' at 3rd.
+        
+        string result;                      //create a string that store result
+        
+        for(int i=1;i<10;i++){              //start traverse to 'test' string
+            if(test[i].size() > 0){         //It include string segment into result if its 
+                result += test[i];          //length > 0.
+                result.push_back(' ');      //Add space after every string segments.
+            }
+        }
+        
+        result.pop_back();                  //Delete last space from 'result' string.
+        return result;
+    }
+    
+    
+    
+    
+    
+    
