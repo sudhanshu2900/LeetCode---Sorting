@@ -1,0 +1,32 @@
+PROBLEM LINK: https://leetcode.com/problems/group-anagrams/
+
+
+SOLUTION:
+
+vector<vector> groupAnagrams(vector& strs) {
+
+	vector<vector<string>> res;
+    
+    if(strs.size() == 1) return {{strs[0]}};
+    
+    vector<string> s;
+    unordered_map<string, vector<string>> mp;
+    
+    for(int i=0;i<strs.size(); i++){
+        s.push_back(strs[i]);                                                   //Copy string 'strs' into string 's'
+    }
+    
+    for(int i=0; i<s.size(); i++){
+        sort(s[i].begin(), s[i].end());                                      //sort all the substrings into string 's'
+        
+        mp[s[i]].push_back(strs[i]);                                     //store sotred substring with its actual substring in the form of (sorted substring, actual substring)
+    }
+            
+    
+    for(auto itr = mp.begin(); itr != mp.end(); itr++){
+        res.push_back(itr->second);                                   //simply insert actual substrings that are already in vector form.
+    }             
+    
+    return res;      
+    
+}
