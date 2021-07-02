@@ -1,0 +1,20 @@
+PROBLEM LINK: https://leetcode.com/problems/sort-array-by-parity-ii/
+
+
+SOLUTION:
+
+vector<int> sortArrayByParityII(vector<int>& nums) {
+        
+        for(int i=0, j=1; i<nums.size() && j<nums.size(); ){
+            if(!(nums[i]&1)) i=i+2;
+            else if(nums[j]&1) j=j+2;
+            else swap(nums[i], nums[j]);
+        }
+        
+        return nums;
+    }
+    
+    
+    
+    
+    
